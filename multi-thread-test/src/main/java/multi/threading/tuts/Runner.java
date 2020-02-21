@@ -1,4 +1,4 @@
-package Java.multi.threading;
+package multi.threading.tuts;
 
 public class Runner implements Runnable {
 

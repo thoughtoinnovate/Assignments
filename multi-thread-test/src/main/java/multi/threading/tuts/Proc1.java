@@ -1,4 +1,4 @@
-package Java.multi.threading;
+package multi.threading.tuts;
 
 public class Proc1 extends Thread{
 	private volatile boolean isRunning=true;

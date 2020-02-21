@@ -1,4 +1,4 @@
-package Java.multi.threading;
+package multi.threading.tuts;
 
 public class Proc1Runner {
 public static void main(String... args) {

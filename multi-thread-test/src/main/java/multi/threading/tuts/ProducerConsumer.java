@@ -1,4 +1,4 @@
-package Java.multi.threading;
+package multi.threading.tuts;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
