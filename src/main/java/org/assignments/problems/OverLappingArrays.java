@@ -1,9 +1,7 @@
 package org.assignments.problems;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class OverLappingArrays {
 
@@ -68,6 +66,31 @@ public class OverLappingArrays {
 
     }
 
+    /**
+     * Optimised Solution
+     *
+     * @return
+     */
+    public static List<List<Integer>> mergeOverlaps(List<List<Integer>> input) {
+
+        //Sort the Overlaps
+        List<List<Integer>> sortedList = input.stream().sorted(Comparator.comparing(l -> l.get(0))).collect(Collectors.toList());
+
+        Stack<List<Integer>> intervalStack = new Stack<>();
+        intervalStack.push(sortedList.get(0));
+
+        for (int i = 1; i < input.size(); i++) {
+            List<Integer> peek = intervalStack.peek();
+            if (peek.get(1) >= sortedList.get(i).get(0)) {
+                peek.set(1, sortedList.get(i).get(1));
+            } else {
+                intervalStack.push(sortedList.get(i));
+            }
+        }
+
+        return intervalStack.stream().toList();
+    }
+
     public static void main(String[] args) {
 
         List<Integer> one = new ArrayList<>();
@@ -82,7 +105,10 @@ public class OverLappingArrays {
         three.add(8);
         three.add(19);
 
-        System.out.println(OverLappingArrays.mergeOverlappingIntervals(Arrays.asList(one, two, three)));
+        List<List<Integer>> input = Arrays.asList(one, two, three);
+        System.out.println(OverLappingArrays.mergeOverlappingIntervals(input));
+
+        System.out.println(OverLappingArrays.mergeOverlaps(input));
     }
 
 }
