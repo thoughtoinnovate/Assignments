@@ -1,3 +1,5 @@
+package org.assignments.problems.Strings;
+
 class StringProblems {
     
     public static String countCharsString(String input){
