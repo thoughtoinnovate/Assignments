@@ -81,7 +81,7 @@ public class MathsExpressionParser {
                     numberStack.push(Integer.valueOf(numberBuilder.toString()));
                 }
 
-                //Incase of igned number with negative values add sign to the number
+                //In case of signed number with negative values add sign to the number
                 if (!operationStack.isEmpty() && isSigned(operationStack.peek())) {
                     operationStack.pop();
                     operationStack.push('+');
